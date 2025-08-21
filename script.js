@@ -1,10 +1,12 @@
 const tabs = document.querySelectorAll('.tab');
 const contents = document.querySelectorAll('.tab-content');
-let bgVideo = document.getElementById('bg-video');
+const bgVideo = document.getElementById('bg-video');
+
+bgVideo.setAttribute('playsinline', '');  // OR: bgVideo.playsInline = true;
 
 // Map tab names to video files
 const tabVideos = {
-  home: 'sitebg3.mp4',  // Default HOME video
+  home: 'sitebg3.mp4',
   music: 'sitebg.mp4',
   videos: 'sitebg5.mp4',
   contact: 'sitebg2.mp4',
@@ -22,43 +24,24 @@ tabs.forEach(tab => {
     const selectedContent = document.getElementById(tab.dataset.tab);
     if (selectedContent) selectedContent.classList.add('active');
 
-    // Switch background video with fade
+    // Switch background video
     const videoSrc = tabVideos[tab.dataset.tab];
-    if (videoSrc && !bgVideo.src.includes(videoSrc)) {
-      // Fade out current video
-      bgVideo.style.transition = 'opacity 0.5s ease';
+    const currentSrc = bgVideo.querySelector('source').getAttribute('src');
+
+    if (videoSrc && currentSrc !== videoSrc) {
       bgVideo.style.opacity = 0;
 
-      // Wait for fade out
-      setTimeout(() => {
-        // Swap video
-        const newVideo = document.createElement('video');
-        newVideo.src = videoSrc;
-        newVideo.autoplay = true;
-        newVideo.muted = true;
-        newVideo.loop = true;
-        newVideo.style.position = 'fixed';
-        newVideo.style.top = 0;
-        newVideo.style.left = 0;
-        newVideo.style.width = '100%';
-        newVideo.style.height = '100%';
-        newVideo.style.objectFit = 'cover';
-        newVideo.style.zIndex = '-2';
-        newVideo.style.opacity = 0;
-        newVideo.style.transition = 'opacity 0.5s ease';
+      bgVideo.addEventListener('transitionend', function onFadeOut() {
+        bgVideo.removeEventListener('transitionend', onFadeOut);
 
-        newVideo.addEventListener('canplay', () => {
-          bgVideo.parentNode.replaceChild(newVideo, bgVideo);
-          bgVideo = newVideo;
-
-          // Fade in new video
-          requestAnimationFrame(() => {
-            bgVideo.style.opacity = 1;
-          });
+        bgVideo.querySelector('source').setAttribute('src', videoSrc);
+        bgVideo.load();
+        bgVideo.play().catch(err => {
+          console.warn('Autoplay blocked or interrupted:', err);
         });
 
-        document.body.appendChild(newVideo);
-      }, 50); // match the fade-out duration
+        bgVideo.style.opacity = 1;
+      });
     }
   });
 });

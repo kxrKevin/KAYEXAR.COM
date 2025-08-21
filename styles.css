@@ -117,15 +117,15 @@ body {
 #bg-video {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
   height: 100%;
+  width: auto;           /* let the width adjust naturally */
+  transform: translateX(-50%); /* center it horizontally */
   object-fit: cover;
   z-index: -2;
   transition: opacity 0.2s ease;
   opacity: 0;
 }
-
 #bg-video.visible {
   opacity: 1;
 }
@@ -167,6 +167,7 @@ body {
   width: 100%;              /* responsive scaling */
   height: auto;
   border-radius: 0;      /* optional styling */
+  background-color: #555;
 }
 
 /* Music tab scroll container */

@@ -1,155 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="script.js" defer></script>
-    <link href="styles.css" rel="stylesheet">
-    <title>KAYEXAR</title>
-    <link rel="icon" type = "image/x-icon" href="logowhite.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KAYEXAR OFFICIAL SITE</title>
+  <link rel="icon" type="image/x-icon" href="logowhite.png">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Background video -->
+  <video autoplay muted loop id="bg-video" class="visible">
+    <source src="sitebg3.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
-    <div class="title">
-        <a href="https://fans.link/kayexar" target="blank"><img src="logo2025white.png" alt="Logo" class="logo"></a>
-        <h2>K A Y E X A R</h2>   
+  <!-- Top tabs -->
+  <div class="tabs">
+    <div class="tab tab1 active" data-tab="home">HOME</div>
+    <div class="tab tab2" data-tab="music">MUSIC</div>
+    <div class="tab tab3" data-tab="videos">VIDEOS</div>
+    <div class="tab tab4" data-tab="contact">CONTACT</div>
+    <div class="tab tab5" data-tab="bio">BIO</div>
+  </div>
+
+  <!-- Tab content areas -->
+  <div class="tab-contents">
+
+    <div id="home" class="tab-content active"></div>
+
+
+
+<div id="music" class="tab-content">
+  <div class="albumcover">
+    <div class="music-scroll">
+
+      <div class="album-item">
+        <a href="https://open.spotify.com/track/19mOEJljug3W59ueKrUO7v?si=8686068d9479427d" target="_blank">
+          <img src="albumcovers/wantit.jpg" alt="Want It"><p class="song-title">WANT IT</p></a>
+      </div>
+
+      <div class="album-item">
+        <a href="https://soundcloud.com/kayexar/training-season-kayexar-remix" target="_blank">
+          <img src="albumcovers/trainingseason.jpg" alt="Training Season">
+        <p class="song-title">TRAINING SEASON</p></a>
         
-        <div class="str-image-links">
-            <a href="https://x.com/kayexar" target="blank"><img src="x.jpg"></a>
-            <a href="https://www.instagram.com/kayexar/" target="blank"><img src="instagram.png"></a>
-            <a href="https://www.youtube.com/@kayexar8220" target="blank"><img src="youtube.png" alt="AppleMusic"></a>
-            <a href="https://soundcloud.com/kayexar" target="blank"><img src="soundcloud.jpg" alt="AppleMusic"></a>
-            <a href="https://music.apple.com/us/artist/kayexar/1595481014" target="blank"><img src="applemusic.jpg" alt="SoundCloud"></a>
-            <a href="https://open.spotify.com/artist/6SlBnKfJreWSR7Hql286HK?si=kpzJWVg4Sw-hglegtC3L4Q" target="blank"><img src="spotify.png" alt="Spotify"></a>
-            
-        </div>
+      </div>
+
+      <div class="album-item">
+        <a href="https://open.spotify.com/track/7eXpBCuGZx3gxaCKKltpxZ?si=b1b2ce2d6253485c" target="_blank">
+          <img src="albumcovers/onmyown.jpg" alt="On My Own">
+        <p class="song-title">ON MY OWN</p></a>
+        
+      </div>
+
+      <div class="album-item">
+        <a href="https://open.spotify.com/track/37lIwDI4L39GXkyBtxfuo1?si=3ee471de3b954df2" target="_blank">
+          <img src="albumcovers/onmymind.jpg" alt="On My Mind">
+        <p class="song-title">ON MY MIND</p></a>
+        
+      </div>
+
+      <div class="album-item">
+        <a href="https://open.spotify.com/track/1oTMgRHhr5onLHFOOHQvoX?si=93b58caa68d949ae" target="_blank">
+          <img src="albumcovers/caffeine.jpg" alt="Caffeine">
+        <p class="song-title">CAFFEINE</p></a>    
+      </div>
+
     </div>
-
-    <ul class="tabs">
-        <li data-tab-target="#music" class="active tab">MUSIC</li>
-        <li data-tab-target="#photos" class="tab">PHOTOS</li>
-        <li data-tab-target="#contacts" class="tab">CONTACTS</li>
-        <li data-tab-target="#news" class="tab">NEWS</li>
-        <li data-tab-target="#bio" class="tab">BIO</li>
-    </ul>
-
-    <div class="tab-content">
-
-<!-- MUSIC TAB -->
-
-        <div id= "music" data-tab-content class="active">
-            <a href="https://open.spotify.com/track/6ManvIaiLMM1B0c87PA0WD?si=c8ff4440c40748f3" target="blank">
-            <div class="song">
-                <div class="albumcover">
-                    <img src="albumcovers/backagain.png" class="albumcover">
-                </div>
-                <div class="songdesc">
-                    <h3>BACK AGAIN</h3>
-                    <p>Released: 01/31/25</p>
-                    <p>Distribution: AWAL</p>
-                    <p>Genre: Progressive House</p>
-                    <p>Available On: All Platforms</p>
-                </div>
-            </div>
-            </a>
-
-            <a href="https://soundcloud.com/kayexar/training-season-kayexar-remix?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="blank">
-            <div class="song">
-                <div class="albumcover">
-                    <img src="albumcovers/trainingseason.jpg" class="albumcover">
-                </div>
-                <div class="songdesc">
-                    <h3>TRAINING SEASON - REMIX</h3>
-                    <p>Released: 12/18/24</p>
-                    <p>Distribution: KXRMUSIC</p>
-                    <p>Genre: Progressive House / POP EDM</p>
-                    <p>Available On: SoundCloud + Instagram</p><br>
-
-                </div>
-            </div>
-            </a>
-
-            <a href="https://open.spotify.com/track/0GufEg7vAHFBHzoahI0R4h?si=8377be55e005497a" target="blank">
-            <div class="song">
-                <div class="albumcover">
-                    <img src="albumcovers/sorry.jpg" class="albumcover">
-                </div>
-                <div class="songdesc">
-                    <h3>SORRY</h3>
-                    <p>Released: 05/31/24</p>
-                    <p>Distribution: AWAL</p>
-                    <p>Genre: Progressive House</p>
-                    <p>Available On: All Platforms</p>
-                </div>
-            </div>
-            </a>
-
-            <a href="https://open.spotify.com/track/1hHzUuWpzUESlVgFddrXdG?si=91deb3e9073647c6">
-            <div class="song">
-                <div class="albumcover">
-                    <img src="albumcovers/neverlookback.png" class="albumcover">
-                </div>
-                <div class="songdesc">
-                    <h3>NEVER LOOK BACK</h3>
-                    <p>Released: 02/02/24</p>
-                    <p>Distribution: AWAL</p>
-                    <p>Genre: POP/EDM</p>
-                    <p>Available On: All Platforms</p>
-                </div>
-            </div>
-            </a>
-
-        </div>
-
-<!-- PHOTOS TAB -->
-
-<div id= "photos" data-tab-content>
-    <img src="artwork/scheme.png">
-    <img src="artwork/scheme2.png">
-    <img src="artwork/scheme3.png">
+  </div>
 </div>
 
-<!-- CONTACTS TAB -->
-
-        <div id= "contacts" data-tab-content>
-            <h4 class="contact">EMAIL: KAYEXARMUSIC@GMAIL.COM</h4>
-
-        </div>
-
-<!-- EVENTS TAB -->
-
-        <div id= "news" data-tab-content>
-            <h4>COMING SOON???</h4>
-            <div class="blackice">
-                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="blank">
-                <img src="artwork/shuriken.png" width="250" id="disk">
-                </a>
-            </div>
-        </div>
 
 
 
-<!-- BIOGRAPHY TAB -->
 
-        <div id= "bio" data-tab-content>
-            <p class="biography">
-                
-                <strong>KAYEXAR</strong> (Prounounced "KXR") is an electronic music duo formed in 2020 by CAF Veteran <strong>Roberto Kuehr</strong> and <strong>Kevin Li</strong>. The two were introduced through mutual friends at Western University and quickly discovered their shared passion for music. <br><br>
-
-                After the initial success of their 2021 and 2022 releases, which garnered hundreds of thousands of streams, the duo entered 2023 with high expectations. Tracks like "On My Own," "Want It," and "Caffeine" helped solidify Kayexar's presence in the music industry, surpassing a million streams. These tracks were also featured on radio stations and charted in top positions in various cities. <br><br>
-                
-                As they move into 2024, Kayexar continues to explore new creative opportunities and musical styles. With releases like "Never Look Back" and their latest summer hit, "Sorry," the duo blends various house EDM styles with unique, self-taught production techniques. The future looks incredibly promising for Kayexar as they continue to push boundaries and evolve their sound.<br><br>
-                
-                Heading into 2025, Kayexar is excited to take their music to new heights. With a growing fanbase and an ever-expanding presence in the industry, they are preparing for more releases and live performances that will further define their sound and impact on the electronic music scene. <br><br><br>
-                
-                OFFICIAL WEBSITE BUILT BY KEVIN LI <br>
-                
-                <a href="https://github.com/kxrkevin" class="github">KEVIN LI'S GITHUB</a>
-
-            </p>
-        </div>
+    <div id="videos" class="tab-content">
 
     </div>
+
+    <div id="contact" class="tab-content">
+      <p class="email">
+        <br><br><br><br><br>KAYEXARMUSIC@GMAIL.COM</p>
+    </div>
+
+    <div id="bio" class="tab-content">
+      <div class="bioblock">
+      <p class="bio-text">KAYEXAR (Prounounced "KXR") is an electronic music duo formed in 2020 by CAF Veteran Roberto Kuehr and Kevin Li. The two were introduced through mutual friends at Western University and quickly discovered their shared passion for music.<br><br>
+
+After the initial success of their 2021 and 2022 releases, which garnered hundreds of thousands of streams, the duo entered 2023 with high expectations. Tracks like "On My Own," "Want It," and "Caffeine" helped solidify Kayexar's presence in the music industry, surpassing a million streams. These tracks were also featured on radio stations and charted in top positions in various cities.<br><br>
+
+As they move into 2024, Kayexar continues to explore new creative opportunities and musical styles. With releases like "Never Look Back" and their latest summer hit, "Sorry," the duo blends various house EDM styles with unique, self-taught production techniques. The future looks incredibly promising for Kayexar as they continue to push boundaries and evolve their sound.<br><br>
+
+Heading into 2025, Kayexar is excited to take their music to new heights. With a growing fanbase and an ever-expanding presence in the industry, they are preparing for more releases and live performances that will further define their sound and impact on the electronic music scene.<br><br>
+
+
+OFFICIAL WEBSITE BUILT BY KEVIN LI</p>
+      </div>
+      
+
+    </div>
+  </div>
+
+  <!-- Bottom icon bar -->
+  <div class="bottom-bar">
+    <a href="https://x.com/kayexar" class="icon" target="_blank"><img src="icons/instagram.jpg" alt="Icon 1"></a>
+    <a href="https://www.instagram.com/kayexar/" target="_blank" class="icon"><img src="icons/x.jpg" alt="Icon 2"></a>
+    <a href="https://www.youtube.com/@kayexar8220" target="_blank" class="icon"><img src="icons/youtube.png" alt="Icon 3"></a>
+    <a href="https://fans.link/kayexar" target="_blank" class="icon"><img src="logowhite.png" alt="Logo"></a>
+    <a href="https://soundcloud.com/kayexar" target="_blank" class="icon"><img src="icons/soundcloud.jpg" alt="Icon 4"></a>
+    <a href="https://music.apple.com/us/artist/kayexar/1595481014" target="_blank" class="icon"><img src="icons/applemusic.jpg" alt="Icon 5"></a>
+    <a href="https://open.spotify.com/artist/6SlBnKfJreWSR7Hql286HK?si=kpzJWVg4Sw-hglegtC3L4Q" target="_blank" class="icon"><img src="icons/spotify.png" alt="Icon 6"></a>
+  </div>
+
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>

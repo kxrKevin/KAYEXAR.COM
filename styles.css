@@ -92,6 +92,7 @@ body {
 .tab-content {
   display: none;
   color: white;
+  
 }
 
 .tab-content.active {
@@ -110,6 +111,8 @@ body {
 
   text-align: center;
   z-index: 5;
+
+  
 }
 
 /* -------------------------------
@@ -252,13 +255,14 @@ body {
 }
 
 .bio-text {
-  color: blue;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   font-size: clamp(4px, 2.5vw, 12px);
   padding-top: 10px;
+
 }
 
 /* -------------------------------

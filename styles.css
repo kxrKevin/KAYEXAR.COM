@@ -96,6 +96,20 @@ body {
 
 .tab-content.active {
   display: block;
+
+  /* Centering styles */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  z-index: 5;
 }
 
 /* -------------------------------

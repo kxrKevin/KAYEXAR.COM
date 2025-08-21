@@ -1,35 +1,52 @@
+/* -------------------------------
+   Body and Global Styles
+---------------------------------*/
 body {
   margin: 0;
   height: 100vh;
   overflow: hidden;
   position: relative;
+  font-family: 'Roboto Mono', monospace;
+  background-color: black;
 }
 
-/* Fullscreen video */
+/* -------------------------------
+   Fullscreen Background Video
+---------------------------------*/
 #bg-video {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
-  transition: opacity 0.7s ease; /* smooth fade */
-  opacity: 0; /* default hidden */
+  top: 50%;                /* vertical center */
+  left: 50%;               /* horizontal center */
+  height: 100vh;           /* full viewport height */
+  width: auto;             /* width adjusts naturally */
+  transform: translate(-50%, -50%); /* perfectly center both axes */
+  object-fit: cover;       /* cover height while keeping aspect ratio */
+  z-index: -2;             /* stays behind all content */
+  transition: opacity 0.7s ease;
+  opacity: 0;
 }
 
-/* Visible state */
 #bg-video.visible {
   opacity: 1;
 }
 
-/* Hidden state */
 #bg-video.hidden {
   opacity: 0;
   pointer-events: none;
 }
 
-/* Top tabs bar */
+/* Mobile-specific fix */
+@media (max-width: 768px) {
+  #bg-video {
+    height: 100vh;         /* ensure full screen height */
+    width: auto;           /* allow natural width scaling */
+    object-fit: cover;
+  }
+}
+
+/* -------------------------------
+   Top Tabs Bar
+---------------------------------*/
 .tabs {
   position: fixed;
   top: 0;
@@ -55,36 +72,41 @@ body {
   transition: color 0.3s ease;
 }
 
-/* Hide inactive content */
-.tab-content {
-  display: none;
-  padding: 20px;
-  color: white;
-  z-index: 5;
-  position: relative;
-}
-
-/* Show active tab content */
-.tab-content.active {
-  display: block;
-}
-
-.tab:hover {
-  color: white;
-}
-
+.tab:hover,
 .tab.active {
   color: white;
 }
 
-/* Bottom icon bar */
+/* -------------------------------
+   Tab Content Areas
+---------------------------------*/
+.tab-contents {
+  position: relative;
+  top: 60px; /* below tab bar */
+  padding: 20px;
+  z-index: 5;
+  text-align: center;
+}
+
+.tab-content {
+  display: none;
+  color: white;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* -------------------------------
+   Bottom Icon Bar
+---------------------------------*/
 .bottom-bar {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 60px;
-  background-color: rgba(0,0,0);
+  background-color: rgba(0, 0, 0);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -92,7 +114,7 @@ body {
   padding: 0 20px;
   box-sizing: border-box;
   z-index: 10;
-  box-shadow: 0 -2px 5px rgba(0,0,0);
+  box-shadow: 0 -2px 5px rgba(0, 0, 0);
 }
 
 .bottom-bar .icon {
@@ -114,136 +136,100 @@ body {
   z-index: 10;
 }
 
-#bg-video {
-  position: fixed;
-  top: 0;
-  left: 50%;
-  height: 100%;
-  width: auto;           /* let the width adjust naturally */
-  transform: translateX(-50%); /* center it horizontally */
-  object-fit: cover;
-  z-index: -2;
-  transition: opacity 0.2s ease;
-  opacity: 0;
-}
-#bg-video.visible {
-  opacity: 1;
-}
+/* -------------------------------
+   Album Covers / Music Scroll
+---------------------------------*/
 
-#bg-video.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Tab content areas */
-.tab-contents {
-  position: relative;
-  top: 60px; /* below the tab bar */
-  padding: 20px;
-  z-index: 5;
-  text-align: center;
-}
-
-.tab-content {
-  display: none;
-  color: white;
-  font-family: 'Roboto Mono', monospace;
-}
-
-.tab-content.active {
-  display: block;
-}
-
-.albumcover {
-  display: flex;
-  flex-direction: column;   /* stack vertically */
-  align-items: center;      /* center horizontally */
-  gap: 20px;                /* space between images */
-  margin-top: 10px;         /* optional: push down from top */
-}
-
-.albumcover img {
-  max-width: 200px;         /* limit size (optional) */
-  width: 100%;              /* responsive scaling */
-  height: auto;
-  border-radius: 0;      /* optional styling */
-  background-color: #555;
-}
-
-/* Music tab scroll container */
-.music-scroll {
+.bioblock {
   display: flex;
   flex-direction: column;
-  align-items: center;    /* center images horizontally */
-  gap: 10px;              /* space between images */
-  
-  /* Make it scrollable */
-  overflow-y: auto;
-  height: calc(100vh - 110px); 
-  /* 100vh full height, minus ~50px top bar and ~60px bottom bar */
-  
-  box-sizing: border-box;
-  padding-right: 25px;
-  padding-bottom: 150px; 
+  align-items: center; /* center horizontally */
+  gap: 10px;
+  background-color: black;
 }
 
-/* Images inside */
+.album-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* centers image and text */
+  gap: 2px;              /* small spacing between image and title */
+  background-color: black; /* black card behind each song */
+}
+
+.albumcover{
+  display: flex;
+  flex-direction: column;   /* stack items vertically */
+  align-items: center;      /* center items horizontally */
+  gap: 20px;                /* space between images or album items */
+  margin-top: 10px;         /* push down from top */
+}
+
+.albumcover img,
 .music-scroll img {
   max-width: 200px;
   width: 100%;
   height: auto;
-  border-radius: 0px;
+  border-radius: 0;
+  background-color: #555;
 }
 
-/* Style scrollbar only inside the music scroll area */
+.music-scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  overflow-y: auto;
+  height: calc(100vh - 110px); /* full height minus top & bottom bars */
+  padding-right: 25px;
+  padding-bottom: 150px;
+  box-sizing: border-box;
+}
+
+/* Scrollbar Styling */
 .music-scroll::-webkit-scrollbar {
-  width: 12px;              /* scrollbar width */
-  padding-bottom: 150px; 
+  width: 12px;
 }
 
 .music-scroll::-webkit-scrollbar-track {
-  background: black;        /* background of scrollbar track */
-  padding-bottom: 150px; 
+  background: black;
 }
 
 .music-scroll::-webkit-scrollbar-thumb {
-  background-color: #555;   /* color of the draggable part */
-  border-radius: 6px;       /* rounded corners */
-  border: 2px solid black;  /* padding effect */
+  background-color: #555;
+  border-radius: 6px;
+  border: 2px solid black;
 }
 
 .music-scroll::-webkit-scrollbar-thumb:hover {
-  background-color: #888;   /* lighter when hovered */
+  background-color: #888;
 }
 
-/* Firefox support */
+/* Firefox scrollbar */
 .music-scroll {
-  scrollbar-width: thin;          /* makes scrollbar thinner */
-  scrollbar-color: #555 black;    /* thumb + track */
+  scrollbar-width: thin;
+  scrollbar-color: #555 black;
 }
 
-.email{
+/* -------------------------------
+   Email Section
+---------------------------------*/
+.email {
   display: flex;
-  justify-content: center; /* horizontal center */
-  align-items: center;     /* vertical center */
-  text-align: center;      /* ensures multi-line text is centered */
-  height: 100%;            /* fills parent div */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
   width: 100%;
-  font-size:30px;
+  font-size: 30px;
   font-family: impact;
-  color:white;
+  color: white;
 }
 
-.album-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;   /* centers image and text */
-  gap: 2px;
-  background-color: black;
-}
-
+/* -------------------------------
+   Song Titles / Bio Text
+---------------------------------*/
 .song-title {
-  font-family:'arial';
+  font-family: Arial, sans-serif;
   font-weight: bolder;
   font-size: 12px;
   color: white;
@@ -253,29 +239,21 @@ body {
 .bio-text {
   color: blue;
   display: flex;
-  justify-content: center; /* optional: center horizontally */
-  align-items: center;     /* optional: center vertically */
-  text-align: center;      /* center text inside */
-  
-  /* Responsive font size */
-  font-size: clamp(4px, 2.5vw, 12px); 
-  /* Minimum 16px, scales with 2.5% of viewport width, max 32px */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: clamp(4px, 2.5vw, 12px);
   padding-top: 10px;
 }
 
-.bioblock{
-  display: flex;
-  flex-direction: column;
-  align-items: center;   /* centers image and text */
-  background-color: black;
-}
-
+/* -------------------------------
+   Links
+---------------------------------*/
 a {
-  color: inherit;        /* use the current text color instead of blue */
-  text-decoration: none; /* remove underline */
+  color: inherit;
+  text-decoration: none;
 }
 
-/* Optional: change color on hover */
 a:hover {
-  color: #888;          /* or any color you want */
+  color: #888;
 }

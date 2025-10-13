@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Image from 'next/image'
+import localFont from "next/font/local";
+import Head from 'next/head';
+
+const myFont = localFont({
+  src: "../public/fonts/BebasNeue-Regular.ttf",
+  variable: "--font-bebas",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,10 +32,45 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        
+        // Nav Bar
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-black p-4 text-red-500 shadow-md flex justify-center">
+          <div className="space-x-6 flex">
+            <a href=".." className="hover:text-gray-300">HOME</a>
+            <a href="/music" className="hover:text-gray-300">MUSIC</a>
+            <a href="/videos" className="hover:text-gray-300">VIDEOS</a>
+            <a href="/contact" className="hover:text-gray-300">CONTACT</a>
+            <a href="/bio" className="hover:text-gray-300">BIO</a>
+          </div>
+        </nav>
+
+        <main className="pt-20 pb-20">{children}</main>
+
+        <footer className="fixed bottom-0 left-0 right-0 bg-black text-white p-4 text-center z-50 flex justify-center">
+          <div className="space-x-6 flex">
+            <a href="https://www.instagram.com/kayexar/" className="transition duration-200 hover:scale-110"><Image src="/logos/instagram.jpg" alt="INSTA" width={30} height={30} /></a>
+            <a href="https://www.x.com/kayexar/" className="transition duration-200 hover:scale-110"><Image src="/logos/x.jpg" alt="INSTA" width={30} height={30} /></a>
+            <a href="https://www.youtube.com/channel/UCsfsY2E3CVyfrox-NZpEdbA/" className="transition duration-200 hover:scale-110"><Image src="/logos/youtube.png" alt="INSTA" width={30} height={30} /></a>
+            <a href="https://fans.link/kayexar" className="transition duration-200 hover:scale-110"><Image src="/logos/logowhite.png" alt="INSTA" width={30} height={30} /></a>
+            <a href="https://soundcloud.com/kayexar" className="transition duration-200 hover:scale-110"><Image src="/logos/soundcloud.jpg" alt="INSTA" width={30} height={30} /></a>
+            <a href="https://music.apple.com/us/artist/kayexar/1595481014" className="transition duration-200 hover:scale-110"><Image src="/logos/applemusic.jpg" alt="INSTA" width={30} height={30} /></a>
+            <a href="https://open.spotify.com/artist/6SlBnKfJreWSR7Hql286HK?si=kpzJWVg4Sw-hglegtC3L4Q&nd=1&dlsi=c8ae9346099a4c65" className="transition duration-200 hover:scale-110"><Image src="/logos/spotify.png" alt="INSTA" width={30} height={30} /></a>
+          </div>
+        </footer>
+
       </body>
     </html>
   );

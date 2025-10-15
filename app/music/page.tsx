@@ -27,9 +27,9 @@ const musicPage = async() => {
         <source src="/bgvids/sitebg-music.mp4" type="video/mp4" />
       </video>
 
-      <div className="h-[70%] w-[275px] p-2 overflow-y-scroll custom-scrollbar justify-center">
+      <div className="h-[70%] w-[275px] p-2 overflow-y-scroll custom-scrollbar justify-center ">
     
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center ">
           {albums.map((album: any) => (
             <a
               key={album.id}

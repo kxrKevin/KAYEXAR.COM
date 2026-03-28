@@ -4,7 +4,6 @@ import type { Metadata } from 'next';
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"></link>
 
 
-
 export const metadata: Metadata = {
       title: 'KAYEXAR',
       description: 'A description of my page.',
